@@ -1,10 +1,10 @@
 import React from 'react';
-
+import Cover from './Cover';
 
 const Home = () => {
     return (
-        <div className='cover_bg'>
-
+        <div>
+            <Cover />
         </div>
     );
 };

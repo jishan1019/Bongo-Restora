@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <>
-            <div className="navbar bg-base-100 shadow-xl ">
+            <div className="navbar bg-base-100 ">
                 <div className="flex-1">
                     <a className="btn btn-ghost normal-case text-2xl text-red-700">Bongo Restora</a>
                 </div>
@@ -20,9 +20,9 @@ const Header = () => {
                             <ul className="p-2 bg-base-100 items-center justify-center">
                                 <li className='text-red-700'>Profile</li>
                                 <li className='text-red-700'><Link to='/'>Home</Link></li>
-                                <li className='text-red-700'><Link to='/'>Blog</Link></li>
-                                <li className='text-red-700'><Link to='/'>Login</Link></li>
-                                <li className='text-red-700'><Link to='/'>Regestation</Link></li>
+                                <li className='text-red-700'><Link to='/blog'>Blog</Link></li>
+                                <li className='text-red-700'><Link to='/login'>Login</Link></li>
+                                <li className='text-red-700'><Link to='/regestation'>Regestation</Link></li>
                             </ul>
                         </li>
 
@@ -30,9 +30,9 @@ const Header = () => {
                         <div className='list-none flex items-center mr-8'>
                             <li className='font-bold text-red-700 '><Link to='/'>Profile</Link></li>
                             <li className='mr-1 ml-1 font-bold text-red-700'><Link to='/'>Home</Link></li>
-                            <li className='mr-1 ml-1 font-bold text-red-700'><Link to='/'>Blog</Link></li>
-                            <li className='mr-1 ml-1 font-bold text-red-700'><Link to='/'>Login</Link></li>
-                            <li className='mr-1 ml-1 font-bold text-red-700'><Link to='/'>Regestation</Link></li>
+                            <li className='mr-1 ml-1 font-bold text-red-700'><Link to='/blog'>Blog</Link></li>
+                            <li className='mr-1 ml-1 font-bold text-red-700'><Link to='/login'>Login</Link></li>
+                            <li className='mr-1 ml-1 font-bold text-red-700'><Link to='/regestation'>Regestation</Link></li>
                         </div>
 
 
