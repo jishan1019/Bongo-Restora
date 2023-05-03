@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Cover = () => {
     return (
@@ -9,7 +10,7 @@ const Cover = () => {
 
                 <div className='mt-6'>
                     <button className='bg-red-700 hover:bg-white p-4 text-white hover:text-black font-bold rounded hover:border-red-700 hover:border-4'>Order now</button>
-                    <button className='shadow-md p-4 font-bold rounded hover:border-red-700 hover:border-4 ml-4' >Learn More</button>
+                    <button className='shadow-md p-4 font-bold rounded hover:border-red-700 hover:border-4 ml-4' ><Link to='/blog'>Learn More</Link></button>
                 </div>
             </div>
             <div>
