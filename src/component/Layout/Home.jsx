@@ -1,5 +1,7 @@
 import React from 'react';
 import Cover from './Cover';
+import ExploreChef from './ExploreChef';
+import CaroselFidback from './CaroselFidback';
 
 const Home = () => {
     return (
@@ -26,6 +28,8 @@ const Home = () => {
                     <p className='text-md'>GLOBES</p>
                 </div>
             </div>
+            <ExploreChef />
+            <CaroselFidback />
         </div>
     );
 };
