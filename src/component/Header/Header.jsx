@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -28,14 +28,38 @@ const Header = () => {
 
 
                         <div className='list-none flex items-center mr-8'>
-                            <li className='font-bold text-red-700 '><Link to='/'>Profile</Link></li>
-                            <li className='mr-1 ml-1 font-bold text-red-700'><Link to='/'>Home</Link></li>
-                            <li className='mr-1 ml-1 font-bold text-red-700'><Link to='/blog'>Blog</Link></li>
-                            <li className='mr-1 ml-1 font-bold text-red-700'><Link to='/login'>Login</Link></li>
-                            <li className='mr-1 ml-1 font-bold text-red-700'><Link to='/regestation'>Regestation</Link></li>
+                            <NavLink
+                                to='/'
+                                aria-label='Home'
+                                title='Home'
+                                className={({ isActive }) => (isActive ? 'active font-bold text-red-700' : 'mr-4 ml-4 font-bold text-red-700')}
+                            >Home
+                            </NavLink>
+
+                            <NavLink
+                                to='/blog'
+                                aria-label='Blog'
+                                title='Blog'
+                                className={({ isActive }) => (isActive ? 'active font-bold text-red-700' : 'mr-4 ml-4 font-bold text-red-700')}
+                            >Blog
+                            </NavLink>
+
+                            <NavLink
+                                to='/login'
+                                aria-label='Login'
+                                title='Login'
+                                className={({ isActive }) => (isActive ? 'active font-bold text-red-700' : 'mr-4 ml-4 font-bold text-red-700')}
+                            >Login
+                            </NavLink>
+
+                            <NavLink
+                                to='/regestation'
+                                aria-label='Regestation'
+                                title='Regestation'
+                                className={({ isActive }) => (isActive ? 'active font-bold text-red-700' : 'mr-4 ml-4 font-bold text-red-700')}
+                            >Regestation
+                            </NavLink>
                         </div>
-
-
                     </ul>
                 </div>
             </div>

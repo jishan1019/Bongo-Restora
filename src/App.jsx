@@ -8,7 +8,9 @@ function App() {
   return (
     <>
       <Header />
-      <Outlet />
+      <div className="min-h-[75vh]">
+        <Outlet />
+      </div>
       <Footer />
     </>
   )

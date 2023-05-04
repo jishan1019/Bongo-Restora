@@ -29,3 +29,9 @@
         display: none;
     }
 }
+
+.active {
+    padding: 10px;
+    background-color: rgb(247, 232, 215);
+    border-radius: 15px;
+}
