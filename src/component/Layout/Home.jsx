@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Cover from './Cover';
 import ExploreChef from './ExploreChef';
 import CaroselFidback from './CaroselFidback';
 import Faq from './Faq';
 import Subscribe from './Subscribe';
 import ChefChard from './ChefChard';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Home = () => {
+    const { data } = useContext(AuthContext);
+
     return (
         <div>
             <Cover />
@@ -32,8 +35,11 @@ const Home = () => {
                 </div>
             </div>
             <ExploreChef />
+
             <div className='grid md:grid-cols-3 grid-cols-1 ml-4 mr-4 gap-6 box-border'>
-                <ChefChard />
+                {
+                    data.map(items => <ChefChard key={items.id} items={items}></ChefChard>)
+                }
             </div>
 
             <CaroselFidback />
