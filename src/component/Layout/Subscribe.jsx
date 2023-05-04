@@ -2,7 +2,7 @@ import React from 'react';
 
 const Subscribe = () => {
     return (
-        <div className='mt-20 text-center'>
+        <div className='mt-20 text-center '>
             <h1 className='md:text-4xl text-2xl font-semibold mb-12 text-center ml-3 mr-3'>Hurry up! Subscribe our newsletter <br />
                 and get 25% Off</h1>
             <p className='text-red-700'>Limited time offer for this month. No credit card required.</p>

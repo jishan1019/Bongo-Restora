@@ -6,7 +6,7 @@ const ChefChard = () => {
     return (
         <>
             <div className="card border-2 full bg-base-100 shadow-xl">
-                <figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHo6p-3MVcmbdA0usEEvqkJY-E9fXxVTbuGA&usqp=CAU" alt="Shoes" /></figure>
+                <figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHo6p-3MVcmbdA0usEEvqkJY-E9fXxVTbuGA&usqp=CAU" alt="Shoes" loading="lazy" /></figure>
                 <div className="card-body">
                     <h2 className="card-title"> Chef Name </h2>
 

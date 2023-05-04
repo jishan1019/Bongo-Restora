@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StarIcon, BookmarkIcon, HandThumbUpIcon, PencilSquareIcon, CalendarDaysIcon } from '@heroicons/react/24/solid'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const SingleChefRecepi = () => {
-    const notify = () => toast("Add To Faviroute.");
+
+    const [isButtonDisabled, setButtonDesable] = useState(false)
+
+    const notify = () => {
+        toast("Add To Faviroute.");
+        setButtonDesable(true)
+    };
 
     return (
         <section>
             {/* Chef Conatiner */}
             <div className='mt-6 mb-12'>
                 <div className="card card-side bg-base-100 shadow mr-8 ml-8">
-                    <figure><img className='h-[200px]' src="https://img.freepik.com/free-photo/portrait-smiling-chef-uniform_329181-675.jpg" alt="Movie" /></figure>
+                    <figure><img loading="lazy" className='h-[200px]' src="https://img.freepik.com/free-photo/portrait-smiling-chef-uniform_329181-675.jpg" alt="Movie" /></figure>
 
                     <div className="card-body">
                         <h2 className="card-title">chef name</h2>
@@ -33,7 +39,7 @@ const SingleChefRecepi = () => {
 
 
                 <div className="card w-96 bg-base-100 border-1 shadow-md">
-                    <figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOu966OtyyOj-T02fw8WFGOUkO_z3-VT9Fjg&usqp=CAU" alt="Shoes" /></figure>
+                    <figure><img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOu966OtyyOj-T02fw8WFGOUkO_z3-VT9Fjg&usqp=CAU" alt="Shoes" /></figure>
                     <div className="card-body">
 
                         <h2 className="card-title">recipe name</h2>
@@ -42,8 +48,9 @@ const SingleChefRecepi = () => {
                             <p className='inline-flex'><StarIcon className="h-6 w-6 text-red-700" />Rating: 18</p>
 
                             <div onClick={notify}>
-                                <p className='pt-2 pb-2 pl-3 pr-3 bg-red-700 inline-flex font-semibold text-white rounded'>Add Favurite <BookmarkIcon className="h-6 w-6 ml-1 text-white" /></p>
-
+                                <p className={`pt-2 pb-2 pl-3 pr-3 inline-flex font-semibold text-white rounded ${isButtonDisabled ? 'bg-gray-500 cursor-not-allowed' : 'bg-red-700 cursor-pointer'}`}>
+                                    Add Favourite <BookmarkIcon className="h-6 w-6 ml-1 text-white" />
+                                </p>
                             </div>
 
                             <ToastContainer />
