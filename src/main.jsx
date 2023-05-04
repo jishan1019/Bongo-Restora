@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         element: <Regestation />
       },
       {
-        path: 'singleChepRecepi',
+        path: 'singleChepRecepi/:id',
         element: <SingleChefRecepi />
       }
 

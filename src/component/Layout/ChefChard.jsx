@@ -18,7 +18,7 @@ const ChefChard = ({ items }) => {
                     <div className='flex justify-between items-center mt-3'>
                         <p className='inline-flex'><HandThumbUpIcon className="h-6 w-6 text-red-700" />{chef.like}</p>
 
-                        <Link to='/singleChepRecepi'>
+                        <Link to={`/singleChepRecepi/${id}`}>
                             <button className='pt-2 pb-2 pl-3 pr-3 inline-flex bg-red-700 rounded font-semibold text-white'>View Recipes <ArrowLongRightIcon className="h-6 w-6 ml-1 text-white" /></button>
                         </Link>
                     </div>

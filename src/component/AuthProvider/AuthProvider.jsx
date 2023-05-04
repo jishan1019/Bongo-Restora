@@ -12,6 +12,7 @@ const AuthProvider = ({ children }) => {
             .then(json => setData(json))
     }, [])
 
+
     const authInfo = { data };
 
 

@@ -1,9 +1,28 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { StarIcon, BookmarkIcon, HandThumbUpIcon, PencilSquareIcon, CalendarDaysIcon } from '@heroicons/react/24/solid'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useParams } from 'react-router-dom';
+
 
 const SingleChefRecepi = () => {
+
+    const { id } = useParams();
+    const [singleData, setSingleData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch(`http://localhost:3000/allChefData/${id}`)
+            .then(response => response.json())
+            .then(json => {
+                setSingleData(json);
+                setLoading(false);
+            })
+    }, [id])
+
+    // const { name, short_bio, picture, like, number_of_recipes, experience_years } = singleData.chef;
+
+
 
     const [isButtonDisabled, setButtonDesable] = useState(false)
 
@@ -15,25 +34,27 @@ const SingleChefRecepi = () => {
     return (
         <section>
             {/* Chef Conatiner */}
-            <div className='mt-6 mb-12'>
-                <div className="card card-side bg-base-100 shadow mr-8 ml-8">
-                    <figure><img loading="lazy" className='h-[200px]' src="https://img.freepik.com/free-photo/portrait-smiling-chef-uniform_329181-675.jpg" alt="Movie" /></figure>
+            {loading ? <div>Loading...</div> :
+                <div className='mt-6 mb-12'>
+                    <div className="card card-side bg-base-100 shadow mr-8 ml-8">
+                        <figure><img loading="lazy" className='h-[200px]' src={singleData.chef.picture} alt=" Movie" /></figure>
 
-                    <div className="card-body">
-                        <h2 className="card-title">chef name</h2>
-                        <p>a short bio/description</p>
-                        <div className='flex justify-around items-center'>
-                            <p className='inline-flex'><HandThumbUpIcon className="h-6 w-6 text-red-700" />Like: 18</p>
+                        <div className="card-body">
+                            <h2 className="card-title">{singleData.chef.name}</h2>
+                            <p>{singleData.chef.short_bio}</p>
+                            <div className='flex justify-around items-center'>
+                                <p className='inline-flex'><HandThumbUpIcon className="h-6 w-6 text-red-700" />Like: {singleData.chef.like}</p>
 
-                            <p className='inline-flex mt-1 mb-1'><PencilSquareIcon className="h-6 w-6 text-red-700" />Number Of Recepies</p>
+                                <p className='inline-flex mt-1 mb-1'><PencilSquareIcon className="h-6 w-6 text-red-700" />Number Of Recepies: {singleData.chef.number_of_recipes}</p>
 
-                            <p className='inline-flex mb-2 mt-1'><CalendarDaysIcon className="h-6 w-6 text-red-700" />Years of experience</p>
+                                <p className='inline-flex mb-2 mt-1'><CalendarDaysIcon className="h-6 w-6 text-red-700" />Years of experience: {singleData.chef.experience_years}</p>
+                            </div>
+
                         </div>
-
                     </div>
                 </div>
-            </div>
 
+            }
             {/* Chef Recepi Conainer */}
             <div className='mb-8 mr-8 ml-8 grid grid-cols-3'>
 
