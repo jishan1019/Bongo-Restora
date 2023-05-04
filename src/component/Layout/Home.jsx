@@ -2,6 +2,8 @@ import React from 'react';
 import Cover from './Cover';
 import ExploreChef from './ExploreChef';
 import CaroselFidback from './CaroselFidback';
+import Faq from './Faq';
+import Subscribe from './Subscribe';
 
 const Home = () => {
     return (
@@ -30,6 +32,8 @@ const Home = () => {
             </div>
             <ExploreChef />
             <CaroselFidback />
+            <Faq />
+            <Subscribe />
         </div>
     );
 };
