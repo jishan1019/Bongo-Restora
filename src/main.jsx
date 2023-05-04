@@ -11,6 +11,7 @@ import Home from './component/Layout/Home.jsx';
 import Blog from './component/Layout/Blog.jsx';
 import Login from './component/Layout/Login.jsx';
 import Regestation from './component/Layout/Regestation.jsx';
+import SingleChefRecepi from './component/Layout/SingleChefRecepi.jsx';
 
 
 const router = createBrowserRouter([
@@ -34,7 +35,12 @@ const router = createBrowserRouter([
       {
         path: '/regestation',
         element: <Regestation />
+      },
+      {
+        path: 'singleChepRecepi',
+        element: <SingleChefRecepi />
       }
+
     ]
   },
 ]);

@@ -4,6 +4,7 @@ import ExploreChef from './ExploreChef';
 import CaroselFidback from './CaroselFidback';
 import Faq from './Faq';
 import Subscribe from './Subscribe';
+import ChefChard from './ChefChard';
 
 const Home = () => {
     return (
@@ -31,6 +32,10 @@ const Home = () => {
                 </div>
             </div>
             <ExploreChef />
+            <div className='grid md:grid-cols-3 grid-cols-1 ml-4 mr-4 gap-6 box-border'>
+                <ChefChard />
+            </div>
+
             <CaroselFidback />
             <Faq />
             <Subscribe />
