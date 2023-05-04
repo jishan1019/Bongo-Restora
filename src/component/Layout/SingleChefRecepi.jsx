@@ -1,7 +1,11 @@
 import React from 'react';
 import { StarIcon, BookmarkIcon, HandThumbUpIcon, PencilSquareIcon, CalendarDaysIcon } from '@heroicons/react/24/solid'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SingleChefRecepi = () => {
+    const notify = () => toast("Add To Faviroute.");
+
     return (
         <section>
             {/* Chef Conatiner */}
@@ -27,6 +31,7 @@ const SingleChefRecepi = () => {
             {/* Chef Recepi Conainer */}
             <div className='mb-8 mr-8 ml-8 grid grid-cols-3'>
 
+
                 <div className="card w-96 bg-base-100 border-1 shadow-md">
                     <figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOu966OtyyOj-T02fw8WFGOUkO_z3-VT9Fjg&usqp=CAU" alt="Shoes" /></figure>
                     <div className="card-body">
@@ -36,9 +41,13 @@ const SingleChefRecepi = () => {
                         <div className='flex justify-between items-center  mt-4'>
                             <p className='inline-flex'><StarIcon className="h-6 w-6 text-red-700" />Rating: 18</p>
 
-                            <div>
+                            <div onClick={notify}>
                                 <p className='pt-2 pb-2 pl-3 pr-3 bg-red-700 inline-flex font-semibold text-white rounded'>Add Favurite <BookmarkIcon className="h-6 w-6 ml-1 text-white" /></p>
+
                             </div>
+
+                            <ToastContainer />
+
                         </div>
 
                     </div>
