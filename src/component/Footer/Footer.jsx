@@ -14,10 +14,10 @@ const Footer = () => {
             </div>
 
             <div className='mt-6 mb-2 w-[150px] mx-auto flex justify-center items-center'>
-                <img className='w-8 h-8 mx-auto' src="../../../public/fb.png" alt="" />
-                <img className='w-8 h-8 mx-auto' src="../../../public/li.png" alt="" />
-                <img className='w-8 h-8 mx-auto' src="../../../public/insta.png" alt="" />
-                <img className='w-8 h-8 mx-auto' src="../../../public/twi.png" alt="" />
+                <img className='w-8 h-8 mx-auto' src="https://www.linkpicture.com/q/fb_9.png" alt="" />
+                <img className='w-8 h-8 mx-auto' src="https://www.linkpicture.com/q/insta_4.png" alt="" />
+                <img className='w-8 h-8 mx-auto' src="https://www.linkpicture.com/q/li.png" alt="" />
+                <img className='w-8 h-8 mx-auto' src="https://www.linkpicture.com/q/twi.png" alt="" />
             </div>
 
             <p className='text-center text-white mt-4 font-semibold text-md'>© 2023. Bongo Restora. All rights reserved.</p>

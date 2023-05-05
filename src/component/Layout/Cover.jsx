@@ -15,7 +15,7 @@ const Cover = () => {
                 </div>
             </div>
             <div>
-                <img className='w-full' src="../../../public/3.jpg" alt="" />
+                <img className='w-full' src="https://www.linkpicture.com/q/3_1188.jpg" alt="" />
             </div>
         </div>
     );
