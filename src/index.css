@@ -35,3 +35,12 @@
     background-color: rgb(247, 232, 215);
     border-radius: 15px;
 }
+
+.bullet-points {
+    list-style-type: disc;
+    margin-left: 1em;
+}
+
+.bullet-points li {
+    margin-bottom: 0.5em;
+}

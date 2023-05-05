@@ -13,6 +13,8 @@ const Recipi = ({ formula }) => {
         setButtonDesable(true)
     };
 
+    console.log(formula?.method);
+
 
     return (
         <div className='mb-8'>
@@ -27,7 +29,19 @@ const Recipi = ({ formula }) => {
                 <div className="card-body">
 
                     <h2 className="card-title">{formula?.name}</h2>
-                    <p className='mt-3'>cooking method 5 point</p>
+
+                    <div className="formula">
+                        <div className="mt-3">
+                            <p className='font-semibold mb-2'>Method:</p>
+                            <ul className="bullet-points">
+                                {formula?.method?.map((step, index) => (
+                                    <li key={index}>{step}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+
                     <div className='flex justify-between items-center  mt-4'>
                         <p className='inline-flex'><StarIcon className="h-6 w-6 text-red-700" />Rating: {formula?.rating}</p>
 

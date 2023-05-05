@@ -21,11 +21,6 @@ const SingleChefRecepi = () => {
             })
     }, [id])
 
-
-
-
-
-
     return (
         <section>
             {/* Chef Conatiner */}
