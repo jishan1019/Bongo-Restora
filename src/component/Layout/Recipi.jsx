@@ -13,8 +13,6 @@ const Recipi = ({ formula }) => {
         setButtonDesable(true)
     };
 
-    console.log(formula?.method);
-
 
     return (
         <div className='mb-8'>

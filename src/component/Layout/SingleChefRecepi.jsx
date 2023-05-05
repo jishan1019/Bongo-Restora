@@ -13,7 +13,7 @@ const SingleChefRecepi = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/allChefData/${id}`)
+        fetch(`https://bongo-restudent-server-jishan1019.vercel.app/allChefData/${id}`)
             .then(response => response.json())
             .then(json => {
                 setSingleData(json);

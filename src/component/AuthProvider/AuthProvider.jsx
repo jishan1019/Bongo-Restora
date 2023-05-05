@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        fetch('http://localhost:3000/allChefData')
+        fetch('https://bongo-restudent-server-jishan1019.vercel.app/allChefData')
             .then(response => response.json())
             .then(json => setData(json))
     }, [])
