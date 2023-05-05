@@ -1,4 +1,6 @@
 import React from 'react';
+import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
+import MyDocument from './MyDocument';
 
 const Blog = () => {
     return (
@@ -28,6 +30,18 @@ const Blog = () => {
                     </div>
                 </div>
             </section>
+
+
+            <div className='flex justify-center items-center flex-col-reverse gap-4'>
+                <PDFDownloadLink document={<MyDocument />} fileName='blog.pdf'>
+                    {({ blob, url, loading, error }) =>
+                        loading ? 'Loading document...' : 'Download PDF'
+                    }
+                </PDFDownloadLink>
+                <PDFViewer>
+                    <MyDocument />
+                </PDFViewer>
+            </div>
         </>
     );
 };
