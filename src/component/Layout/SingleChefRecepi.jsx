@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { StarIcon, BookmarkIcon, HandThumbUpIcon, PencilSquareIcon, CalendarDaysIcon } from '@heroicons/react/24/solid'
 import { useParams } from 'react-router-dom';
 import Recipi from './Recipi';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 
 const SingleChefRecepi = () => {
@@ -30,7 +32,17 @@ const SingleChefRecepi = () => {
             {loading ? <h1 className='p-6 text-center mx-auto animate-bounce rounded-full bg-yellow-400 w-32'>Data Loding.......</h1> :
                 <div className='mt-6 mb-12'>
                     <div className="card card-side bg-base-100 shadow mr-8 ml-8">
-                        <figure><img loading="lazy" className='h-[200px]' src={singleData?.chef?.picture} alt=" Movie" /></figure>
+                        <figure>
+
+
+                            <LazyLoadImage
+                                alt="img"
+                                height="200px"
+                                effect="blur"
+                                src={singleData?.chef?.picture}
+                            />
+
+                        </figure>
 
                         <div className="card-body">
                             <h2 className="card-title">{singleData?.chef?.name}</h2>

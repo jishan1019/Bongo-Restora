@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { StarIcon, BookmarkIcon } from '@heroicons/react/24/solid'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Recipi = ({ formula }) => {
     const [isButtonDisabled, setButtonDesable] = useState(false)
@@ -15,7 +17,13 @@ const Recipi = ({ formula }) => {
     return (
         <div className='mb-8'>
             <div className="card w-96 bg-base-100 border-1 shadow-md">
-                <figure><img loading="lazy" src={formula?.picture} alt="Shoes" /></figure>
+                <figure>
+                    <LazyLoadImage
+                        alt="img"
+                        effect="blur"
+                        src={formula?.picture}
+                    />
+                </figure>
                 <div className="card-body">
 
                     <h2 className="card-title">{formula?.name}</h2>
