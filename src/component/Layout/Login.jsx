@@ -9,8 +9,9 @@ const Login = () => {
     const { loginUser } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const loaction = useLocation()
-    const navigate = useNavigate()
+    const location = useLocation();
+    const navigate = useNavigate();
+    const form = location?.state?.from?.pathname || '/'
 
     const notify = (massage) => {
         toast(massage);
@@ -21,8 +22,8 @@ const Login = () => {
         if ((email, password)) {
             loginUser(email, password)
                 .then((result) => {
-                    navigate("/");
                     notify("Login Success")
+                    navigate(form, { replace: true })
                 })
                 .catch((error) => {
                     console.log(error.message);

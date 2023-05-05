@@ -10,6 +10,7 @@ const Regestation = () => {
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
+    const [password1, setPassword1] = useState("");
     const [regSu, setRegSuc] = useState("");
 
 
@@ -29,6 +30,13 @@ const Regestation = () => {
             notify("password not valid need 8 char")
             return;
         }
+
+        if (password !== password1) {
+            notify("Password are not same")
+            return;
+        }
+
+
         if ((name, email, password)) {
             registerUser(email, password)
                 .then((result) => {
@@ -72,6 +80,14 @@ const Regestation = () => {
                         className="password p-3 border-2 rounded border-red-300"
                         type="password"
                         placeholder="type your password"
+                        required
+                    />
+
+                    <input
+                        onChange={(e) => setPassword1(e.target.value)}
+                        className="password p-3 border-2 rounded border-red-300"
+                        type="password"
+                        placeholder="Confirm your password"
                         required
                     />
 
