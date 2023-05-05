@@ -13,6 +13,7 @@ import Login from './component/Layout/Login.jsx';
 import Regestation from './component/Layout/Regestation.jsx';
 import SingleChefRecepi from './component/Layout/SingleChefRecepi.jsx';
 import AuthProvider from './component/AuthProvider/AuthProvider.jsx';
+import PrivateRoute from './component/PrivateRoute/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -39,7 +40,9 @@ const router = createBrowserRouter([
       },
       {
         path: 'singleChepRecepi/:id',
-        element: <SingleChefRecepi />
+        element: (<PrivateRoute>
+          <SingleChefRecepi />
+        </PrivateRoute>)
       }
 
     ]
