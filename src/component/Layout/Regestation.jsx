@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Regestation = () => {
 
@@ -8,25 +10,33 @@ const Regestation = () => {
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
     const [regSu, setRegSuc] = useState("");
 
 
+    const notify = (massage) => {
+        toast(massage);
+    };
+
     const handleRegistration = (event) => {
         event.preventDefault();
+
+        if (name.length < 2 || password.length < 7 || email.length < 3) {
+            notify("Please Fillup all fild")
+            return
+        }
+
         if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
-            setError("password not valid need 8 char ");
+            notify("password not valid need 8 char")
             return;
         }
         if ((name, email, password)) {
             registerUser(email, password)
                 .then((result) => {
                     setRegSuc(result);
-                    console.log(regSu);
-                    setError("")
+                    notify("Regestation Success")
                 })
                 .catch((err) => {
-                    setError(err.message);
+                    notify(err.message)
                 });
         }
     };
@@ -36,10 +46,9 @@ const Regestation = () => {
     return (
         <div>
             <form className="card m-8 border-4 w-96 bg-base-100 shadow mx-auto mt-20">
+                <ToastContainer />
                 <div className="card-body">
                     <h1 className='text-center mb-6 font-semibold text-xl text-red-700'>Regestation Now</h1>
-
-                    <p>{error}</p>
 
                     <input
                         onChange={(e) => setName(e.target.value)}
@@ -61,16 +70,22 @@ const Regestation = () => {
                     <input
                         onChange={(e) => setPassword(e.target.value)}
                         className="password p-3 border-2 rounded border-red-300"
-                        type="text"
+                        type="password"
                         placeholder="type your password"
                         required
                     />
 
-
                     <input className='p-3 border-2 rounded border-red-300' type="text" placeholder='Photo Url' />
                 </div>
 
-                <input onClick={handleRegistration} className='p-4 bg-red-700 text-white font-semibold w-28 rounded mx-auto mb-6' type="submit" value='Regestation' />
+                <input
+                    onClick={handleRegistration}
+                    className='p-4 bg-red-700 text-white font-semibold w-28 rounded mx-auto mb-6'
+                    type="submit"
+                    value='Regestation'
+                />
+
+
 
                 <p className='text-center mt-0 mb-4'>Alrady Have Account <Link className='underline' to='/regestation'>Login now</Link></p>
 

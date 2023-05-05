@@ -1,30 +1,41 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
     const { loginUser } = useContext(AuthContext);
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const loaction = useLocation()
+    const navigate = useNavigate()
+
+    const notify = (massage) => {
+        toast(massage);
+    };
 
     const handleLogin = (event) => {
         event.preventDefault();
         if ((email, password)) {
             loginUser(email, password)
                 .then((result) => {
-                    console.log(result.user);
-                    // navigate("/");
+                    navigate("/");
+                    notify("Login Success")
                 })
                 .catch((error) => {
                     console.log(error.message);
+                    notify(error.message)
                 });
         }
     };
 
+
+
     return (
         <form className="card m-8 border-4 w-96 bg-base-100 shadow mx-auto mt-20">
+            <ToastContainer />
             <div className="card-body">
                 <h1 className='text-center mb-6 font-semibold text-xl text-red-700'>Login Now</h1>
 

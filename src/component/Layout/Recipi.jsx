@@ -4,9 +4,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Recipi = ({ formula }) => {
-
-    console.log(formula);
-
     const [isButtonDisabled, setButtonDesable] = useState(false)
 
     const notify = () => {

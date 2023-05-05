@@ -8,7 +8,7 @@ const Header = () => {
     const [mouseHoverUser, setMouseHoverUser] = useState(false);
 
     const { user, logOut } = useContext(AuthContext);
-    console.log(user?.email);
+
     const handleLogout = () => {
         logOut()
             .then()
@@ -50,7 +50,7 @@ const Header = () => {
                                 }
 
                                 {
-                                    mouseHoverUser ? <h1 className=''>Email: {user?.email}</h1> : ""
+                                    mouseHoverUser ? <h1 className=''>{user?.email}</h1> : ""
                                 }
 
 
