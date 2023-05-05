@@ -58,7 +58,7 @@ const Regestation = () => {
     const handelRegWithGithub = () => {
         registerGitHub(auth, gitProvider)
             .then((result) => {
-                const user = result?.user;
+                const user = result.user;
                 notify(`Regestation Success ${user?.displayName}`)
             })
             .catch((error) => {

@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
-    const { loginUser } = useContext(AuthContext);
+    const { loginUser, loginGoogle } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const location = useLocation();
@@ -32,6 +32,15 @@ const Login = () => {
         }
     };
 
+    const handleGoogleSignIn = () => {
+        loginGoogle().then((result) => {
+            notify("Login Success")
+            navigate(form, { replace: true })
+        }).catch((error) => {
+            console.log(error.message);
+            notify(error.message)
+        });
+    };
 
 
     return (
@@ -61,7 +70,7 @@ const Login = () => {
 
             <p className='text-center mt-4 mb-4'>Create new Account <Link className='underline' to='/regestation'>Here</Link></p>
 
-            <img className='mb-4 w-[200px] mx-auto' src="https://i.ibb.co/gSTHXZJ/google-btn.png" alt="" />
+            <img onClick={handleGoogleSignIn} className='mb-4 w-[200px] mx-auto' src="https://i.ibb.co/gSTHXZJ/google-btn.png" alt="" />
             <img className='mb-6 w-[200px] mx-auto' src="https://i.ibb.co/g9f4P0S/github-btn.png" alt="" />
 
         </form>

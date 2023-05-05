@@ -22,6 +22,10 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, googleProvider);
     }
 
+    const loginGoogle = (email, password) => {
+        return signInWithPopup(auth, googleProvider);
+    };
+
     const registerGitHub = (auth, gitProvider) => {
         return signInWithPopup(auth, gitProvider);
     }
@@ -50,7 +54,7 @@ const AuthProvider = ({ children }) => {
             .then(json => setData(json))
     }, [])
 
-    const authInfo = { data, registerUser, registerGoogle, user, logOut, loginUser, googleProvider, auth, registerGitHub, gitProvider };
+    const authInfo = { data, registerUser, registerGoogle, user, logOut, loginUser, googleProvider, auth, registerGitHub, gitProvider, loginGoogle };
 
     return (
         <AuthContext.Provider value={authInfo}>
