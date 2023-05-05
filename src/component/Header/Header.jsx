@@ -49,12 +49,11 @@ const Header = () => {
                                     user ? <img className='w-10 h-10 rounded-full' src="https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg" alt="" onMouseOver={() => { setMouseHoverUser(true) }} /> : ""
                                 }
 
-                                {
-                                    mouseHoverUser ? <h1 className='p-2 bg-red-100 rounded'>{user?.email}</h1> : ""
-                                }
-
-
-
+                                {mouseHoverUser ? (
+                                    <h1 className='p-2 bg-red-100 rounded'>
+                                        {user?.displayName ? user.displayName : user?.email}
+                                    </h1>
+                                ) : null}
                             </div>
 
 

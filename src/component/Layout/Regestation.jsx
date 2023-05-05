@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Regestation = () => {
 
-    const { registerUser } = useContext(AuthContext);
+    const { registerUser, registerGoogle, googleProvider, auth, gitProvider, registerGitHub } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
@@ -20,23 +20,18 @@ const Regestation = () => {
 
     const handleRegistration = (event) => {
         event.preventDefault();
-
         if (name.length < 2 || password.length < 7 || email.length < 3) {
             notify("Please Fillup all fild")
             return
         }
-
         if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
             notify("password not valid need 8 char")
             return;
         }
-
         if (password !== password1) {
             notify("Password are not same")
             return;
         }
-
-
         if ((name, email, password)) {
             registerUser(email, password)
                 .then((result) => {
@@ -48,6 +43,28 @@ const Regestation = () => {
                 });
         }
     };
+
+    const handelRegWithGoogle = () => {
+        registerGoogle(auth, googleProvider)
+            .then((result) => {
+                const user = result.user;
+                notify(`Regestation Success ${user?.displayName}`)
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
+    const handelRegWithGithub = () => {
+        registerGitHub(auth, gitProvider)
+            .then((result) => {
+                const user = result?.user;
+                notify(`Regestation Success ${user?.displayName}`)
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
 
 
 
@@ -105,8 +122,9 @@ const Regestation = () => {
 
                 <p className='text-center mt-0 mb-4'>Alrady Have Account <Link className='underline' to='/regestation'>Login now</Link></p>
 
-                <img className='mb-4 w-[200px] mx-auto' src="https://i.ibb.co/gSTHXZJ/google-btn.png" alt="" />
-                <img className='mb-6 w-[200px] mx-auto' src="https://i.ibb.co/g9f4P0S/github-btn.png" alt="" />
+                <img onClick={handelRegWithGoogle} className='mb-4 w-[200px] mx-auto' src="https://i.ibb.co/gSTHXZJ/google-btn.png" alt="" />
+
+                <img onClick={handelRegWithGithub} className='mb-6 w-[200px] mx-auto' src="https://i.ibb.co/g9f4P0S/github-btn.png" alt="" />
 
             </form>
         </div>
